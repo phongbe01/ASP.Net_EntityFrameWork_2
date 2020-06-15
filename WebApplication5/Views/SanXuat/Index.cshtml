@@ -1,0 +1,6 @@
+﻿@model List<WebApplication5.Models.tHangSX>
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("SPTheoMaSX", "Home", new {id = item.MaHangSX.Trim()})">@item.HangSX</a>
+}

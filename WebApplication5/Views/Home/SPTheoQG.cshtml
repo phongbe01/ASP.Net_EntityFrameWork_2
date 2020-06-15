@@ -1,0 +1,25 @@
+﻿@model PagedList.IPagedList<WebApplication5.Models.tDanhMucSP>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "San Pham Theo MaSX";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @{
+            foreach (var item in Model)
+            {
+                <div class="product">
+                    <img src="@Url.Content("~/images/" + item.Anh)" alt="Alternate Text" />
+                    <div class="title">
+                        <a href="@Url.Action("Details", "Home", new {id = item.MaSP.Trim()})">@item.TenSP</a>
+                        <p>@item.Gia</p>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    @Html.PagedListPager(Model, page => Url.Action("SPTheoMaSX", "Home", new { id = Model.First().MaNuocSX.Trim(), page = page }))
+</div>

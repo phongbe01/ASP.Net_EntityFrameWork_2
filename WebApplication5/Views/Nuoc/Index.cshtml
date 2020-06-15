@@ -1,0 +1,6 @@
+﻿@model List<WebApplication5.Models.tQuocGia>
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("SPTheoQG", "Home", new {id = item.MaNuoc.Trim() })">@item.TenNuoc</a>
+}
